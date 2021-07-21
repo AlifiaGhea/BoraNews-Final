@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    tools:context=".ui.internationallist.InternationalNewsActivity">
 
-    <include layout = "@layout/app_bar_search"/>
+    <include layout="@layout/app_bar_international_list"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerViewInternasional"
+        android:layout_marginTop="150dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

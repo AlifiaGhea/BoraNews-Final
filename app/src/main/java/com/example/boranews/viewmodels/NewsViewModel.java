@@ -18,16 +18,25 @@ public class NewsViewModel extends ViewModel {
             return;
         }
         newsRepository = NewsRepository.getInstance();
-        mutableLiveData = newsRepository.getIndonesiaNews("id", "4ad031b3c5654c20a35cacb8ae6865d1");
+        mutableLiveData = newsRepository.getIndonesiaNews("id", "76b1bcba29574f27a995701fe0de3a14");
 
     }
 
-    public void initInternationalNews(){
+    public void initInternationalNews(String country){
         if (mutableLiveData != null){
             return;
         }
         newsRepository = NewsRepository.getInstance();
-        mutableLiveData = newsRepository.getIndonesiaNews("us", "4ad031b3c5654c20a35cacb8ae6865d1");
+        mutableLiveData = newsRepository.getInternationalNews(country, "76b1bcba29574f27a995701fe0de3a14");
+
+    }
+
+    public void initSearchNews(String katakunci){
+//        if (mutableLiveData != null){
+//            return;
+//        }
+        newsRepository = NewsRepository.getInstance();
+        mutableLiveData = newsRepository.getSearchNews(katakunci,  "6d0bf911bc5748d691955ba138ba06fa");
 
     }
 

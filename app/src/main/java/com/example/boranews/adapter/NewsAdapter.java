@@ -1,6 +1,8 @@
 package com.example.boranews.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +17,10 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.boranews.R;
 import com.example.boranews.holder.NewsViewHolder;
 import com.example.boranews.model.NewsArticle;
+import com.example.boranews.DetailNewsActivity;
 import com.example.boranews.utils.TimeUnits;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Created by Azhar Rivaldi on 22-12-2019.
- */
-
-/* Edited by Rifa Marwa on 19-07-2021 */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
@@ -51,17 +46,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder viewHolder, int position) {
-//        holder.tvName.setText(articles.get(position).getTitle().toString());
-//        holder.tvDesCription.setText(articles.get(position).toString());
-//        Picasso.get().load(articles.get(position).getUrlToImage()).into(holder.ivNews);
-
         final NewsArticle berita = androidList.get(position);
 
         Glide.with(context)
                 .load(berita.getUrlToImage())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.ic_launcher_background)
-                //.transform(new CenterInside(), new RoundedCorners(30))
                 .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
                 .into(viewHolder.image);
 
@@ -72,7 +62,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
             @Override
             public void onClick(View v) {
 
-                onSelectData.onSelected(berita);
+                Bundle bundle =new Bundle();
+                bundle.putString("judul",androidList.get(position).getTitle());
+                bundle.putString("tanggal",androidList.get(position).getPublishedAt());
+                bundle.putString("foto",androidList.get(position).getUrlToImage());
+                bundle.putString("sumber",androidList.get(position).getSource().getName());
+                bundle.putString("author",androidList.get(position).getAuthor());
+                bundle.putString("deskripsi",androidList.get(position).getDescription());
+                bundle.putString("url",androidList.get(position).getUrl());
+
+                Intent intent = new Intent(v.getContext(), DetailNewsActivity.class);
+                intent.putExtras(bundle);
+                v.getContext().startActivity(intent);
+
+               // onSelectData.onSelected(berita);
             }
         });
     }
@@ -82,56 +85,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         return androidList.size();
     }
 
+    public void setFilter(ArrayList<NewsArticle> filterList){
+        androidList = new ArrayList<>();
+        androidList.addAll(filterList);
+        notifyDataSetChanged();
+    }
+
 }
 
-//    public List<NewsArticle> androidList;
-//    private Context mContext;
-//    private NewsAdapter.onSelectData onSelectData;
-//
-//    public interface onSelectData {
-//        void onSelected(NewsArticle mdlNews);
-//    }
-//
-//    public NewsAdapter(Context context, List<NewsArticle> android, NewsAdapter.onSelectData onSelectData) {
-//        this.mContext = context;
-//        this.androidList = android;
-//        this.onSelectData = onSelectData;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-//        View view = LayoutInflater.from(mContext).inflate(R.layout.list_item_berita, viewGroup, false);
-//        return new NewsViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(NewsViewHolder viewHolder, int i) {
-//
-//        final NewsArticle berita = androidList.get(i);
-//
-//        Glide.with(mContext)
-//                .load(berita.getUrlToImage())
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .placeholder(R.drawable.ic_launcher_background)
-//                //.transform(new CenterInside(), new RoundedCorners(30))
-//                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
-//                .into(viewHolder.image);
-//
-//        viewHolder.title.setText(berita.getTitle());
-//        viewHolder.source.setText(berita.getSource().getName());
-//        viewHolder.publishedAt.setText(TimeUnits.getTimeAgo(berita.getPublishedAt()));
-//        viewHolder.cvNews.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                onSelectData.onSelected(berita);
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return androidList.size();
-//    }
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/appBarInternationalList"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <Toolbar
+            android:id="@+id/toolbarBora2"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            tools:targetApi="lollipop">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLToolbar2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/boranewslogo"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/search2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/ic_baseline_search_24"
+                    app:layout_constraintLeft_toRightOf="@+id/logo"
+                    app:layout_constraintRight_toRightOf="@id/cLToolbar2"
+                    app:layout_constraintTop_toTopOf="@id/cLToolbar2"/>
+
+                <TextView
+                    android:id="@+id/tvBeritaInternasional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_internationalist_caps"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="10pt"
+                    android:layout_marginTop="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </Toolbar>
+        <ImageView
+            app:layout_constraintTop_toBottomOf="@+id/tvBeritaInternasional"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/garisungu"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

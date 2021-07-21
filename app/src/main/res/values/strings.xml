@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Bora News</string>
-    <string name="title_activity_tabbed">TabbedActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="title_headline">Berita Utama</string>
+    <string name="title_internationallist">Berita Internasional</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_headline_caps">BERITA UTAMA</string>
+    <string name="title_internationalist_caps">BERITA INTERNASIONAL</string>
+    <string name="pilih_negara">Pilih Negara</string>
+    <string name="us">Amerika Serikat</string>
+    <string name="korea">Korea</string>
+    <string name="jepang">Jepang</string>
+    <string name="search">Cari Berita</string>
 </resources>

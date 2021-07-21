@@ -43,6 +43,25 @@ public class NewsRepository {
         });
         return newsData;
     }
+    public MutableLiveData<NewsResponse> getSearchNews(String katakunci, String key){
+        MutableLiveData<NewsResponse> newsData = new MutableLiveData<>();
+        newsApi.getSearchList(katakunci, key).enqueue(new Callback<NewsResponse>() {
+            @Override
+            public void onResponse(Call<NewsResponse> call,
+                                   Response<NewsResponse> response) {
+                if (response.isSuccessful()){
+                    newsData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NewsResponse> call, Throwable t) {
+                newsData.setValue(null);
+            }
+        });
+        return newsData;
+    }
+
     public MutableLiveData<NewsResponse> getInternationalNews(String country, String key){
         MutableLiveData<NewsResponse> newsData = new MutableLiveData<>();
         newsApi.getNewsInternationalList(country, key).enqueue(new Callback<NewsResponse>() {

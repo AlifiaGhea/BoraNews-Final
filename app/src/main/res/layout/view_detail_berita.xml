@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/detail_foto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/teal_700"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@id/detail_foto"
+        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/detail_foto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/detail_judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:text="Judul Berita"
+        android:textSize="12pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sumberform"
+                    android:textSize="6pt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sumber : " />
+
+                <TextView
+                    android:id="@+id/detail_sumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Sumber Berita"
+                    android:textSize="6pt" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/authorform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author "
+                android:textSize="6pt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text=":"
+                android:textSize="6pt"/>
+
+            <TextView
+                android:id="@+id/detail_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Author"
+                android:textSize="6pt"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:id="@+id/detail_tanggal"
+                android:textSize="6pt"
+                android:text="Tanggal"/>
+
+        </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/detail_isi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detail Isi"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:textSize="9pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/urlform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL : "
+                android:textSize="6pt" />
+
+            <TextView
+                android:id="@+id/detail_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="6pt"
+                android:text="Isi URL" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/detail_button"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="10dp"
+            android:layout_marginBottom="50dp"
+            android:text="Baca Berita Selengkapnya"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintVertical_bias="0.597" />
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

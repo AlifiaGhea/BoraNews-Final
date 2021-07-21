@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_headline">
+
+    <fragment
+        android:id="@+id/navigation_headline"
+        android:name="com.example.boranews.ui.headline.HeadlineFragment"
+        android:label="Headline"
+        tools:layout="@layout/fragment_headline" />
+
+    <fragment
+        android:id="@+id/navigation_internationallist"
+        android:name="com.example.boranews.ui.internationallist.InternationalNewsListFragment"
+        android:label="International List"
+        tools:layout="@layout/fragment_international_list" />
+
+</navigation>

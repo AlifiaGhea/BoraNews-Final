@@ -14,5 +14,9 @@ public interface NewsApi {
 
     @GET("top-headlines")
     Call<NewsResponse> getNewsInternationalList(@Query("country") String newsSource,
-                                   @Query("apiKey") String apiKey);
+                                                @Query("apiKey") String apiKey);
+
+    @GET("everything")
+    Call<NewsResponse> getSearchList(@Query("qInTitle") String katakunci,
+                                     @Query("apiKey") String apiKey);
 }
